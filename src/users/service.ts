@@ -21,7 +21,6 @@ export const saveUser = async (user: Users) => {
                 createdAt: new Date(),
             },
         });
-        console.log(newUser);
         const token = jwt.sign(
             {
                 user_id: newUser.id,
@@ -33,7 +32,6 @@ export const saveUser = async (user: Users) => {
                 expiresIn: '1h',
             }
         );
-        console.log(token);
         return token;
     } catch (error) {
         return prismaErrorHandler(error);
